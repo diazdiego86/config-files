@@ -40,15 +40,24 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 " For Rust plugins
 Plug 'rust-lang/rust.vim'
 
+" Better C++ highlighting
+Plug 'bfrg/vim-cpp-modern'
+
+" Colorscheme switcher
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-colorscheme-switcher'
+
 " Colorschemes
 Plug 'kristijanhusak/vim-hybrid-material'
+Plug 'jacoborus/tender.vim'
+Plug 'chriskempson/base16-vim'
 
 " Initialize plugin system
 call plug#end()
 
 " Colorscheme configuration (must be after plug so hybrid can be found)
 set background=dark
-colorscheme hybrid_reverse
+colorscheme base16-oceanicnext
 
 " NERDTree shortcuts
 " Ctrl + d for NerdTree toggling
