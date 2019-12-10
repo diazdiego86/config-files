@@ -1,16 +1,27 @@
-"set termguicolors
-set clipboard=unnamedplus
-
 if exists('+termguicolors')
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
   set termguicolors
 endif
 
+set autoindent
+set tabstop=4 shiftwidth=4 expandtab
+set smartindent
 
+set ruler
+set undolevels=1000
 set number
 " disable --INSERT-- (powered by Powerline already)
 set noshowmode
+
+"highlights matching brace
+set showmatch
+
+"highlights search results
+set hlsearch
+
+" allow by default the copy/paste using clipboard
+set clipboard=unnamedplus
 
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -62,6 +73,15 @@ colorscheme base16-oceanicnext
 " NERDTree shortcuts
 " Ctrl + d for NerdTree toggling
 nmap <silent> <C-d> :NERDTreeToggle<CR>
+
+" Fix the Ctrl+left/right shortcuts
+if &term =~ '^screen'
+    " tmux will send xterm-style keys when its xterm-keys option is on
+    execute "set <xUp>=\e[1;*A"
+    execute "set <xDown>=\e[1;*B"
+    execute "set <xRight>=\e[1;*C"
+    execute "set <xLeft>=\e[1;*D"
+endif
 
 " NERDTree opened by default
 " au VimEnter *  NERDTree
