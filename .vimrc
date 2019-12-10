@@ -74,15 +74,6 @@ colorscheme base16-oceanicnext
 " Ctrl + d for NerdTree toggling
 nmap <silent> <C-d> :NERDTreeToggle<CR>
 
-" Fix the Ctrl+left/right shortcuts
-if &term =~ '^screen'
-    " tmux will send xterm-style keys when its xterm-keys option is on
-    execute "set <xUp>=\e[1;*A"
-    execute "set <xDown>=\e[1;*B"
-    execute "set <xRight>=\e[1;*C"
-    execute "set <xLeft>=\e[1;*D"
-endif
-
 " NERDTree opened by default
 " au VimEnter *  NERDTree
 "
