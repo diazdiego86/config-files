@@ -68,7 +68,7 @@ call plug#end()
 
 " Colorscheme configuration (must be after plug so hybrid can be found)
 set background=dark
-colorscheme base16-oceanicnext
+colorscheme base16-chalk
 
 " NERDTree shortcuts
 " Ctrl + d for NerdTree toggling

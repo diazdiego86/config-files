@@ -2,13 +2,13 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/dadiaz/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="agnoster"
+#ZSH_THEME="agnoster"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -81,6 +81,28 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+# For Pure zsh theme
+# NOTE for the Diego of the future: This is the original
+# fpath+=$HOME/.zsh/pure
+# autoload -U promptinit; promptinit
+# prompt pure
+
+# Purs is the fork of Pure made in Rust (https://github.com/xcambar/purs)
+function zle-line-init zle-keymap-select {
+  PROMPT=`$HOME/code/rust/purs/target/release/purs prompt -k "$KEYMAP" -r "$?" --venv "${${VIRTUAL_ENV:t}%-*}"`
+  zle reset-prompt
+}
+zle -N zle-line-init
+zle -N zle-keymap-select
+
+autoload -Uz add-zsh-hook
+
+function _prompt_purs_precmd() {
+  $HOME/code/rust/purs/target/release/purs precmd
+}
+add-zsh-hook precmd _prompt_purs_precmd
+# END: Purs is the fork of Pure made in Rust
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -107,3 +129,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias c="cd .."
+
+# Base16 Shell
+BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        eval "$("$BASE16_SHELL/profile_helper.sh")"
