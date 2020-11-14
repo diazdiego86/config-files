@@ -10,8 +10,11 @@ set smartindent
 
 set ruler
 set undolevels=1000
-set number
-" disable --INSERT-- (powered by Powerline already)
+
+" Line number configuration
+set number relativenumber " hybrid
+
+" disable --INSERT-- (powered by lightline)
 set noshowmode
 
 "highlights matching brace
@@ -22,6 +25,9 @@ set hlsearch
 
 " allow by default the copy/paste using clipboard
 set clipboard=unnamedplus
+
+" folder to put all the swp files in one place
+set directory^=$HOME/.vim/swp//
 
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -54,6 +60,9 @@ Plug 'rust-lang/rust.vim'
 " Better C++ highlighting
 Plug 'bfrg/vim-cpp-modern'
 
+" EasyMotion
+Plug 'easymotion/vim-easymotion'
+
 " Colorscheme switcher
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-colorscheme-switcher'
@@ -63,6 +72,12 @@ Plug 'kristijanhusak/vim-hybrid-material'
 Plug 'jacoborus/tender.vim'
 Plug 'chriskempson/base16-vim'
 
+" Rainbow parentheses
+Plug 'junegunn/rainbow_parentheses.vim'
+
+" lightline plugin (replaces Powerline)
+Plug 'itchyny/lightline.vim'
+
 " Initialize plugin system
 call plug#end()
 
@@ -70,14 +85,22 @@ call plug#end()
 set background=dark
 colorscheme base16-chalk
 
+" -------------------------------- KEYBOARD MAPPINGS
+" Remapping Leader
+let mapleader = "\<Space>"
+
 " NERDTree shortcuts
 " Ctrl + d for NerdTree toggling
 nmap <silent> <C-d> :NERDTreeToggle<CR>
 
-" NERDTree opened by default
-" au VimEnter *  NERDTree
-"
-" Powerline plugin
-set rtp+=/home/dadiaz/.local/lib/python3.6/site-packages/powerline/bindings/vim/
+" Use jj instead of Esc to go to normal mode
+imap jj <Esc>
+" -------------------------------- KEYBOARD MAPPINGS END
+
+" lightline plugin conf
 set laststatus=2
+let g:lightline = {
+    \ 'colorscheme': 'jellybeans',
+    \ }
+
 set t_Co=256
