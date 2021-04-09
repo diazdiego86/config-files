@@ -56,6 +56,11 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 " For Rust plugins
 Plug 'rust-lang/rust.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 
 " Better C++ highlighting
 Plug 'bfrg/vim-cpp-modern'
@@ -104,3 +109,8 @@ let g:lightline = {
     \ }
 
 set t_Co=256
+
+" ------------------------------- RUST ANALYZER CONFIGURATION
+let g:LanguageClient_serverCommands = {
+            \ 'rust': ['rust-analyzer'],
+            \ }
