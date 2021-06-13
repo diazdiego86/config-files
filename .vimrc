@@ -61,6 +61,7 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
     \ }
+" Plug 'dense-analysis/ale'
 
 " Better C++ highlighting
 Plug 'bfrg/vim-cpp-modern'
@@ -71,6 +72,9 @@ Plug 'easymotion/vim-easymotion'
 " Colorscheme switcher
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-colorscheme-switcher'
+
+" Vim polyglot for better syntax highlighting
+Plug 'sheerun/vim-polyglot'
 
 " Colorschemes
 Plug 'kristijanhusak/vim-hybrid-material'
@@ -88,7 +92,7 @@ call plug#end()
 
 " Colorscheme configuration (must be after plug so hybrid can be found)
 set background=dark
-colorscheme base16-chalk
+colorscheme base16-default-dark
 
 " -------------------------------- KEYBOARD MAPPINGS
 " Remapping Leader
@@ -114,3 +118,10 @@ set t_Co=256
 let g:LanguageClient_serverCommands = {
             \ 'rust': ['rust-analyzer'],
             \ }
+" let g:ale_linters = {'rust': ['analyzer']}
+
+" ------------------------------- MUComplete settings
+set completeopt+=menuone
+set completeopt+=noselect
+set shortmess+=c "Shut off completion messages
+set belloff+=ctrlg "If vim beeps during completion
