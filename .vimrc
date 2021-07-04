@@ -11,6 +11,9 @@ set smartindent
 set ruler
 set undolevels=1000
 
+" highlights the current line when INSERT mode
+autocmd InsertEnter,InsertLeave * set cul!
+
 " Line number configuration
 set number relativenumber " hybrid
 
@@ -29,6 +32,24 @@ set clipboard=unnamedplus
 " folder to put all the swp files in one place
 set directory^=$HOME/.vim/swp//
 
+" Remapping the split/pane nagivation keys (replace Ctrl+w+j by Ctrl+j)
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Open new split panes to right and bottom, which feels more natural than Vim’s default:
+set splitbelow
+set splitright
+
+"Max out the height of the current split:                               ctrl + w _
+"Max out the width of the current split:                                ctrl + w |
+"Normalize all split sizes, which is very handy when resizing terminal: ctrl + w =
+"Swap top/bottom or left/right split:                                   Ctrl+W R
+"Break out current window into a new tabview:                           Ctrl+W T
+"Close every window in the current tabview but the current one:         Ctrl+W o
+
+" Plug start
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
