@@ -3,7 +3,7 @@
 local Plug = vim.fn['plug#']
 
 -- Specify a directory for plugins
-vim.call('plug#begin', '~/.config/nvim/plugged')
+vim.call('plug#begin', vim.fn.stdpath('config') .. '/plugged')
 
 -- Make sure you use single quotes
 
@@ -35,8 +35,18 @@ Plug 'morhetz/gruvbox'
 Plug 'nlknguyen/papercolor-theme'
 Plug 'https://github.com/altercation/vim-colors-solarized.git'
 Plug 'bluz71/vim-moonfly-colors'
+
+-- Barbar plugin to show the buffers listed as tabs
 Plug 'kyazdani42/nvim-web-devicons' -- this is required for barbar as a dependency (vim-plug dependencies?)
 Plug 'romgrk/barbar.nvim'
+
+-- LSP
+Plug 'neovim/nvim-lspconfig'
+Plug 'williamboman/nvim-lsp-installer'
+
+-- Autocompletion
+Plug 'hrsh7th/nvim-cmp' -- Autocompletion plugin.
+Plug 'hrsh7th/cmp-nvim-lsp'
 
 -- Initialize plugin system
 vim.call('plug#end')

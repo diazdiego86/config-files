@@ -2,6 +2,7 @@
 -- Dependencies
 require("plugins")
 require("keybindings")
+require("lsp")
 
 -- --------------------------------------------------------------
 -- global options
