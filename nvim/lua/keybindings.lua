@@ -20,3 +20,10 @@ vim.api.nvim_set_keymap('n', '<C-H>', "<C-W><C-H>", { silent = true, noremap = t
 
 -- Use jj as an alternative to Esc to go to normal mode
 vim.api.nvim_set_keymap('i', 'jj', '<Esc>', {})
+vim.api.nvim_set_keymap('n', '<C-d>', ":NvimTreeToggle<CR>", { silent = true, noremap = true }) -- Ctrl + d for NvimTree toggling
+
+-- Telescope keybindings
+vim.api.nvim_set_keymap('n', '<leader>ff', "<cmd>lua require('telescope.builtin').find_files()<cr>", { silent = true, noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>fg', "<cmd>lua require('telescope.builtin').live_grep()<cr>", { silent = true, noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>fb', "<cmd>lua require('telescope.builtin').buffers()<cr>", { silent = true, noremap = true })
+vim.api.nvim_set_keymap('n', '<leader>fh', "<cmd>lua require('telescope.builtin').help_tags()<cr>", { silent = true, noremap = true })

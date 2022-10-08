@@ -36,7 +36,7 @@ capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 -- Include the servers you want to have installed by default below
 local lsp_installer = require "nvim-lsp-installer"
 local servers = {
-  "clangd",
+  -- "clangd", this is now disabled due to clangd_extensions.nvim plugin
   "pyright",
   "rust_analyzer",
 }
@@ -55,6 +55,7 @@ for _, name in pairs(servers) do
     capabilities = capabilities,
   }
 end
+-- require("clangd_extensions").setup()
 
 -- Make runtime files discoverable to the server.
 local runtime_path = vim.split(package.path, ';')

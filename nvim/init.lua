@@ -2,7 +2,7 @@
 -- Dependencies
 require("plugins")
 require("keybindings")
-require("lsp")
+-- require("lsp")
 
 -- --------------------------------------------------------------
 -- global options
@@ -75,9 +75,9 @@ vim.api.nvim_exec(
 )
 
 -- Automatically removing all trailing whitespace
-vim.api.nvim_exec(
-  [[
-  autocmd BufWritePre * :%s/\s\+$//e
-]],
-  false
-)
+-- vim.api.nvim_exec(
+--  [[
+--  autocmd BufWritePre * :%s/\s\+$//e
+--]],
+--  false
+--)
